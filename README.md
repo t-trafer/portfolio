@@ -13,3 +13,4 @@ bun dev
 
 Tech Stack:
 NextJS
+TailwindCSS
