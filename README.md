@@ -10,3 +10,6 @@ yarn dev
 bun install
 bun dev
 ```
+
+Tech Stack:
+NextJS
