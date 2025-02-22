@@ -47,7 +47,7 @@ const AchievementsSection = () => {
                   animateToNumber={parseInt(achievement.value)}
                   locale="en-US"
                   className="text-4xl font-bold text-white"
-                  configs={(_, index) => {
+                  transitions={(index) => {
                     return {
                       mass: 1,
                       friction: 100,
