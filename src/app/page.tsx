@@ -1,9 +1,10 @@
-import Image from "next/image";
-
+import HeroSection from '@/components/organisms/HeroSection';
+import WebVitalsDisplay from '@/components/organisms/WebVitalsDisplay';
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12">
-      test
-    </main>
+    <>
+      <HeroSection />
+      <WebVitalsDisplay />
+    </>
   );
 }
