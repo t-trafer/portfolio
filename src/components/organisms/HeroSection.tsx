@@ -11,20 +11,17 @@ const HeroSection = () => {
   const handleDownload = async () => {
     try {
       setIsDownloading(true);
-      const fileId = '1Y4DXQgkZBCbM4EHJoXPqBE8qLF2iMACM';
-      const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
-
       const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.setAttribute('download', 'Nilesh_CV.pdf');
+      link.href = '/resume.pdf';
+      link.download = 'Nilesh_Resume.pdf';
       document.body.appendChild(link);
-
       link.click();
-
       document.body.removeChild(link);
+
       setTimeout(() => {
         setIsDownloading(false);
-      }, 2500);
+      }, 800);
+
     } catch (error) {
       console.error('Download failed:', error);
       setIsDownloading(false);
