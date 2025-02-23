@@ -22,6 +22,8 @@ const config: Config = {
       secondary: colors.blue,
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 };
 export default config;

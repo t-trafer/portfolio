@@ -28,6 +28,11 @@
       )
       rgb(var(--background-start-rgb));
   }
+
+  /* HACK: tailwind@4 has no support for safeList */
+  .text-blue-400 {
+    @apply text-blue-400;
+  }
 }
 
 @keyframes levitate {
