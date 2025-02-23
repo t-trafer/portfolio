@@ -8,7 +8,7 @@ export function Logo() {
     >
       {/* Animated gradient background */}
       <div
-        className="from-primary-500 to-secondary-500 absolute inset-0 bg-gradient-to-r via-purple-500 bg-[length:200%_auto] bg-clip-text opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="from-primary-500 to-secondary-500 absolute inset-0 bg-linear-to-r via-purple-500 bg-[length:200%_auto] bg-clip-text opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{ animation: 'gradient 3s linear infinite' }}
       >
         <span

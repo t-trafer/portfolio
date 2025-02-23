@@ -21,14 +21,14 @@ export default function Header() {
             {!navbarOpen ? (
               <button
                 onClick={() => setNavbarOpen(true)}
-                className="flex items-center rounded border border-zinc-400 bg-white/10 px-3 py-2 text-zinc-700 transition-colors hover:border-zinc-600 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-300 dark:hover:text-white"
+                className="flex items-center rounded-sm border border-zinc-400 bg-white/10 px-3 py-2 text-zinc-700 transition-colors hover:border-zinc-600 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-300 dark:hover:text-white"
               >
                 <Bars3Icon className="h-5 w-5" />
               </button>
             ) : (
               <button
                 onClick={() => setNavbarOpen(false)}
-                className="flex items-center rounded border border-zinc-400 bg-white/10 px-3 py-2 text-zinc-700 transition-colors hover:border-zinc-600 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-300 dark:hover:text-white"
+                className="flex items-center rounded-sm border border-zinc-400 bg-white/10 px-3 py-2 text-zinc-700 transition-colors hover:border-zinc-600 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-300 dark:hover:text-white"
               >
                 <XMarkIcon className="h-5 w-5" />
               </button>
