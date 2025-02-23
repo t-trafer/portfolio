@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
 import Link from 'next/link';
 import { ArrowPathIcon } from '@heroicons/react/16/solid';
-import AchievementsSection from '../molecules/AchievmentSection';
 
 const HeroSection = () => {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -15,7 +14,6 @@ const HeroSection = () => {
       const fileId = '1Y4DXQgkZBCbM4EHJoXPqBE8qLF2iMACM';
       const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
-      // Create a temporary link element
       const link = document.createElement('a');
       link.href = downloadUrl;
       link.setAttribute('download', 'Nilesh_CV.pdf');
@@ -23,7 +21,6 @@ const HeroSection = () => {
 
       link.click();
 
-      // Cleanup
       document.body.removeChild(link);
       setTimeout(() => {
         setIsDownloading(false);
@@ -35,10 +32,10 @@ const HeroSection = () => {
   };
 
   return (
-    <section className={`min-h-[calc(100vh-6rem)]`}>
-      <div className="my-auto grid grid-cols-1 px-12 sm:grid-cols-12">
-        <div className="col-span-8 place-self-center text-center sm:text-left">
-          <h1 className="mb-4 text-4xl font-extrabold text-white sm:text-5xl lg:text-8xl lg:leading-normal">
+    <section className={`flex min-h-[calc(100vh-6rem)]`}>
+      <div className="my-auto grid grid-cols-1 px-12 md:grid-cols-12">
+        <div className="place-self-center text-center md:col-span-6 md:text-left xl:col-span-8">
+          <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl md:leading-normal lg:text-[5rem]">
             <span className="from-primary-400 to-secondary-600 bg-gradient-to-r bg-clip-text text-transparent">
               Hello, I&apos;m
             </span>
@@ -49,8 +46,6 @@ const HeroSection = () => {
                 1000,
                 'Web Developer',
                 1000,
-                'Software Engineer',
-                1000,
                 'UI/UX Designer',
                 1000,
               ]}
@@ -60,7 +55,7 @@ const HeroSection = () => {
               className="text-zinc-900 transition-colors dark:text-zinc-100"
             />
           </h1>
-          <p className="mb-6 text-base text-zinc-600 sm:text-lg lg:text-xl dark:text-zinc-400">
+          <p className="mb-6 text-base text-zinc-600 md:text-lg lg:text-xl dark:text-zinc-400">
             Software Engineer specializing in performance optimization and
             scalable architecture for modern web applications.
           </p>
@@ -90,20 +85,20 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="col-span-4 mt-4 place-self-center lg:mt-0">
+        <div className="mt-4 place-self-center md:col-span-6 lg:mt-0 xl:col-span-4">
           <div className="relative h-[250px] w-[250px] rounded-full bg-[#181818] lg:h-[400px] lg:w-[400px]">
             <Image
               src={`/images/hero-image-3.webp`}
-              alt="hero image"
+              alt="Nilesh - Software Engineer and Web Developer"
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-4 border-white object-cover transition-all duration-300 hover:scale-105 dark:border-zinc-800"
+              priority
               width={400}
               height={400}
-              priority
+              sizes="(max-width: 768px) 250px, 400px"
             />
           </div>
         </div>
       </div>
-      <AchievementsSection />
     </section>
   );
 };

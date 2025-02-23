@@ -12,7 +12,7 @@ export default function Header() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="lg:px-22 sticky top-0 z-10 w-full border-b border-gray-500/80 bg-gray-200/80 px-16 dark:bg-black/80">
+    <nav className="sticky top-0 z-10 w-full border-b border-gray-500/80 bg-gray-200/80 px-4 lg:px-8 dark:bg-black/80">
       <div className={`flex h-[6rem] items-center justify-between`}>
         <Logo />
         <div className="flex items-center gap-4">
