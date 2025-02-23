@@ -36,7 +36,7 @@ const HeroSection = () => {
       <div className="my-auto grid grid-cols-1 px-12 md:grid-cols-12">
         <div className="place-self-center text-center md:col-span-6 md:text-left xl:col-span-8">
           <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl md:leading-normal lg:text-[5rem]">
-            <span className="from-primary-400 to-secondary-600 bg-gradient-to-r bg-clip-text text-transparent">
+            <span className="from-primary-400 to-secondary-600 bg-linear-to-r bg-clip-text text-transparent">
               Hello, I&apos;m
             </span>
             <br></br>
@@ -62,14 +62,14 @@ const HeroSection = () => {
           <div>
             <Link
               href="/#contact"
-              className="from-primary-500 to-secondary-500 mr-4 inline-block rounded-full bg-gradient-to-br px-6 py-3 text-white hover:bg-slate-200"
+              className="from-primary-500 to-secondary-500 mr-4 inline-block rounded-full bg-linear-to-br px-6 py-3 text-white hover:bg-slate-200"
             >
               Hire Me
             </Link>
             <button
               onClick={handleDownload}
               disabled={isDownloading}
-              className="from-primary-500 to-secondary-500 mt-3 inline-block rounded-full bg-gradient-to-br px-1 py-1 text-white hover:bg-slate-800"
+              className="from-primary-500 to-secondary-500 mt-3 inline-block rounded-full bg-linear-to-br px-1 py-1 text-white hover:bg-slate-800"
             >
               <span className="block rounded-full bg-[#121212] px-5 py-2 hover:bg-slate-800">
                 {isDownloading ? (
