@@ -1,13 +1,5 @@
-'use client';
 import React from 'react';
-import dynamic from 'next/dynamic';
-
-const AnimatedNumbers = dynamic(
-  () => {
-    return import('react-animated-numbers');
-  },
-  { ssr: false },
-);
+import { AnimatedNumbers } from '@/modules/animated-numbers';
 
 const achievementsList = [
   {
@@ -47,11 +39,6 @@ const AchievementsSection = () => {
                   animateToNumber={parseInt(achievement.value)}
                   locale="en-US"
                   className="text-2xl font-bold text-zinc-900 sm:text-4xl dark:text-white"
-                  transitions={(index) => ({
-                    mass: 1,
-                    friction: 100,
-                    tensions: 140 * (index + 1),
-                  })}
                 />
                 {achievement.postfix}
               </h2>
