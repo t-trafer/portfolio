@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/organisms/Header';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -111,14 +112,15 @@ export default function RootLayout({
           }}
         />
       </head>
-
+      <GoogleTagManager gtmId="GTM-TX5N3D27" />
+      <GoogleAnalytics gaId="G-WY9X5M91VE" />
       <body className={inter.className}>
         <ThemeProvider>
           <main className="flex min-h-screen flex-col items-center justify-between">
             <Header />
             {children}
             <footer></footer>
-          </main>
+          </main> 
         </ThemeProvider>
       </body>
     </html>
