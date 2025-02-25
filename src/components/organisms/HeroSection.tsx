@@ -12,7 +12,7 @@ const HeroSection = () => {
     try {
       setIsDownloading(true);
       const link = document.createElement('a');
-      link.href = '/resume.pdf';
+      link.href = '/artifacts/resume.pdf';
       link.download = 'Nilesh_Resume.pdf';
       document.body.appendChild(link);
       link.click();

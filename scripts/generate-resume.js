@@ -2,7 +2,7 @@ import { existsSync, writeFileSync, unlinkSync } from 'fs';
 import { join } from 'path';
 
 const DOC_ID = '1LK6__3jlJl9XaYdSv4RxSfoonj-IXA7h';
-const OUTPUT_PATH = join(process.cwd(), 'public', 'resume.pdf');
+const OUTPUT_PATH = join(process.cwd(), 'public', 'artifacts', 'resume.pdf');
 const TIMEOUT = 10000;
 
 async function downloadPdf() {
@@ -36,6 +36,8 @@ async function downloadPdf() {
     
     if (existsSync(OUTPUT_PATH)) {
       unlinkSync(OUTPUT_PATH);
+    } else {
+      mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
     }
 
     writeFileSync(OUTPUT_PATH, Buffer.from(arrayBuffer));
