@@ -1,13 +1,14 @@
-import AchievementsSection from '@/components/molecules/AchievementSection';
-import PageAnalyticsData from '@/components/molecules/page-analytics-data';
-import HeroSection from '@/components/organisms/HeroSection';
-import WebVitalsDisplay from '@/components/organisms/WebVitalsDisplay';
+import { AchievementMetrics } from '@/components/features/achievement-metrics';
+import AnalyticMetrics from '@/components/features/analytic-metrics';
+import Hero from '@/components/sections/hero';
+import WebVitalsDisplay from '@/components/sections/web-vitals/web-vitals';
+
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <AchievementsSection />
-      <PageAnalyticsData />
+      <Hero />
+      <AchievementMetrics />
+      <AnalyticMetrics />
       <WebVitalsDisplay />
     </>
   );

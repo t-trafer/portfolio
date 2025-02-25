@@ -1,5 +1,5 @@
-import { existsSync, writeFileSync, unlinkSync } from 'fs';
-import { join } from 'path';
+import { existsSync, mkdirSync, writeFileSync, unlinkSync } from 'fs';
+import { join, dirname } from 'path';
 
 const DOC_ID = '1LK6__3jlJl9XaYdSv4RxSfoonj-IXA7h';
 const OUTPUT_PATH = join(process.cwd(), 'public', 'artifacts', 'resume.pdf');
@@ -16,7 +16,7 @@ async function downloadPdf() {
     const response = await fetch(exportUrl, {
       signal: controller.signal,
       headers: {
-        'Accept': 'application/pdf',
+        Accept: 'application/pdf',
       },
     });
 
@@ -33,11 +33,11 @@ async function downloadPdf() {
     }
 
     const arrayBuffer = await response.arrayBuffer();
-    
+
     if (existsSync(OUTPUT_PATH)) {
       unlinkSync(OUTPUT_PATH);
     } else {
-      mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
+      mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
     }
 
     writeFileSync(OUTPUT_PATH, Buffer.from(arrayBuffer));
@@ -48,11 +48,11 @@ async function downloadPdf() {
     } else {
       console.error('❌ Error:', error.message);
     }
-    
+
     if (existsSync(OUTPUT_PATH)) {
       unlinkSync(OUTPUT_PATH);
     }
-    
+
     process.exit(1);
   }
 }

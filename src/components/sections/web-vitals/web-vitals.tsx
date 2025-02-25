@@ -1,7 +1,9 @@
 'use client';
-import React, { useState } from 'react';
 import { useReportWebVitals } from 'next/web-vitals';
-import { RATING_COLORS, WEB_VITALS_CONFIG } from '@/constants/webVitals';
+import React, { useState } from 'react';
+
+import { RATING_COLORS, WEB_VITALS_CONFIG } from './web-vitals.constants';
+import { WebVitalName } from './web-vitals.types';
 
 function useCoreWebVitals() {
   const [metrics, setMetrics] = useState<
@@ -25,7 +27,7 @@ function useCoreWebVitals() {
 
 function getRating(
   name: WebVitalName,
-  value: number,
+  value: number
 ): 'good' | 'needs-improvement' | 'poor' {
   const { thresholds } = WEB_VITALS_CONFIG[name];
 
@@ -73,7 +75,7 @@ export default function WebVitalsDisplay() {
                 </span>
               </div>
             </div>
-          ),
+          )
         )}
       </div>
     </section>

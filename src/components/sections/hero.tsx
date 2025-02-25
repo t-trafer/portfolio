@@ -1,11 +1,12 @@
 'use client';
-import React, { useState } from 'react';
 import Image from 'next/image';
-import { TypeAnimation } from 'react-type-animation';
 import Link from 'next/link';
-import { ArrowPathIcon } from '@heroicons/react/16/solid';
+import React, { useState } from 'react';
 
-const HeroSection = () => {
+import { ArrowPathIcon } from '@heroicons/react/16/solid';
+import { TypeAnimation } from 'react-type-animation';
+
+export default function Hero() {
   const [isDownloading, setIsDownloading] = useState(false);
 
   const handleDownload = async () => {
@@ -21,7 +22,6 @@ const HeroSection = () => {
       setTimeout(() => {
         setIsDownloading(false);
       }, 800);
-
     } catch (error) {
       console.error('Download failed:', error);
       setIsDownloading(false);
@@ -87,7 +87,7 @@ const HeroSection = () => {
             <Image
               src={`/images/hero-image-3.webp`}
               alt="Nilesh - Software Engineer and Web Developer"
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-4 border-white object-cover transition-all duration-300 hover:scale-105 dark:border-zinc-800"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-4 border-white object-cover transition-all duration-300 hover:scale-105 dark:border-zinc-800"
               priority
               width={400}
               height={400}
@@ -98,6 +98,4 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

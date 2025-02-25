@@ -1,68 +1,18 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import Header from '@/components/organisms/Header';
-import { ThemeProvider } from '@/contexts/ThemeContext';
+
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+
+import './globals.css';
+
+import Header from '@/components/sections/header';
+import LD_JSON from '@/constants/site/ldJson';
+import META_DATA from '@/constants/site/meta-data';
+import { ThemeProvider } from '@/contexts/theme-context';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Nilesh Jha - Software Engineer & Web Developer',
-  description:
-    'Software Engineer specializing in performance optimization and scalable architecture for modern web applications.',
-  keywords: [
-    'Software Engineer',
-    'Web Developer',
-    'UI/UX Designer',
-    'React',
-    'Next.js',
-  ],
-  icons: {
-    icon: [
-      { url: '/icons/site/favicon.ico' },
-      { url: '/icons/site/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/icons/site/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      {
-        url: '/icons/site/android-chrome-192x192.png',
-        sizes: '192x192',
-        type: 'image/png',
-      },
-      {
-        url: '/icons/site/android-chrome-512x512.png',
-        sizes: '512x512',
-        type: 'image/png',
-      },
-    ],
-    apple: [
-      {
-        url: '/icons/site/apple-touch-icon.png',
-        sizes: '180x180',
-        type: 'image/png',
-      },
-    ],
-  },
-  manifest: '/site.webmanifest',
-  authors: [{ name: 'Nilesh' }],
-  openGraph: {
-    title: 'Nilesh - Software Engineer & Web Developer',
-    description:
-      'Software Engineer specializing in performance optimization and scalable architecture',
-    images: ['/images/hero-image-3.webp'],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Nilesh - Software Engineer & Web Developer',
-    description:
-      'Software Engineer specializing in performance optimization and scalable architecture',
-    images: ['/images/hero-image-3.webp'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = META_DATA;
 
 export default function RootLayout({
   children,
@@ -98,29 +48,19 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Nilesh',
-              jobTitle: 'Software Engineer',
-              url: 'https://nileshjha.live',
-              sameAs: [
-                'https://linkedin.com/in/nilesh2k',
-                'https://github.com/t-trafer',
-              ],
-            }),
+            __html: JSON.stringify(LD_JSON),
           }}
         />
       </head>
-      <GoogleTagManager gtmId="GTM-TX5N3D27" />
-      <GoogleAnalytics gaId="G-WY9X5M91VE" />
+      <GoogleTagManager gtmId={process.env.GTM_ID!} />
+      <GoogleAnalytics gaId={process.env.GA_ID!} />
       <body className={inter.className}>
         <ThemeProvider>
           <main className="flex min-h-screen flex-col items-center justify-between">
             <Header />
             {children}
             <footer></footer>
-          </main> 
+          </main>
         </ThemeProvider>
       </body>
     </html>
