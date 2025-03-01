@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
-
 import './globals.css';
 
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+
+import Footer from '@/components/sections/footer';
 import Header from '@/components/sections/header';
 import LD_JSON from '@/constants/site/ldJson';
 import META_DATA from '@/constants/site/meta-data';
@@ -59,7 +60,7 @@ export default function RootLayout({
           <main className="flex min-h-screen flex-col items-center justify-between">
             <Header />
             {children}
-            <footer></footer>
+            <Footer />
           </main>
         </ThemeProvider>
       </body>
