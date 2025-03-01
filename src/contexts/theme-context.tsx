@@ -13,10 +13,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light');
-  // const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // setMounted(true);
     const savedTheme = localStorage.getItem('theme') as Theme;
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
       .matches
@@ -48,10 +46,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }
     },
   };
-
-  // if (!mounted) {
-  //   return <>{children}</>;
-  // }
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>

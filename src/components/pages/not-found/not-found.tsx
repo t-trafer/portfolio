@@ -1,10 +1,12 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { RESPONSES } from './not-found.contants';
 import { useRouter } from 'next/navigation';
+import { useState, useRef, useEffect } from 'react';
+
+import { motion } from 'framer-motion';
+
+import { RESPONSES } from './not-found.contants';
 
 export default function NotFound() {
   const router = useRouter();
@@ -25,14 +27,14 @@ export default function NotFound() {
 
       switch (command) {
         case '':
-          setOutput([...output, `>`]);  
+          setOutput([...output, `>`]);
           break;
         case 'clear':
           setOutput([]);
           break;
         case 'home':
           setTimeout(() => {
-            router.push('/'); 
+            router.push('/');
           }, 1000);
           setOutput([...output, `> ${command}`, newOutput]);
           break;
@@ -45,15 +47,17 @@ export default function NotFound() {
   };
 
   return (
-    <section className={`flex min-h-[calc(100vh-6rem)] w-full bg-black p-8 font-mono`}>
+    <section
+      className={`flex min-h-[calc(100vh-6rem)] w-full bg-black p-8 font-mono`}
+    >
       <div className="before:animate-grain pointer-events-none fixed inset-0 overflow-hidden before:absolute before:inset-0 before:bg-[url('/noise.png')] before:opacity-20" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mx-auto max-w-2xl w-full"
+        className="mx-auto w-full max-w-2xl"
       >
-        <pre className="mb-8 text-center text-xs sm:text-sm text-green-500">
+        <pre className="mb-8 text-center text-xs text-green-500 sm:text-sm">
           {`
  ███████╗██████╗ ██████╗  ██████╗ ██████╗ 
  ██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗
@@ -67,11 +71,11 @@ export default function NotFound() {
 `}
         </pre>
 
-<div className="text-blue-500"/> 
+        <div className="text-blue-500" />
         <div className="rounded-lg border border-green-500 bg-black p-4">
-          <div 
+          <div
             ref={outputRef}
-            className="mb-4 space-y-2 max-h-[300px] overflow-y-auto scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-zinc-900"
+            className="scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-zinc-900 mb-4 max-h-[300px] space-y-2 overflow-y-auto"
           >
             {output.map((line, i) => (
               <motion.div

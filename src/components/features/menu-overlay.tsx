@@ -1,4 +1,4 @@
-import NavLink from '../atoms/NavLink';
+import Link from 'next/link';
 
 const MenuOverlay = ({
   links,
@@ -9,7 +9,7 @@ const MenuOverlay = ({
     <ul className="flex flex-col items-center py-4">
       {links.map((link, index) => (
         <li key={index}>
-          <NavLink href={link.path} title={link.title} />
+          <Link href={link.path}>{link.title}</Link>
         </li>
       ))}
     </ul>

@@ -1,3 +1,5 @@
+import { WebVitalConfig, WebVitalName, RatingType } from './web-vitals.types';
+
 export const WEB_VITALS_CONFIG: Record<WebVitalName, WebVitalConfig> = {
   FCP: {
     label: 'First Contentful Paint',

@@ -1,14 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
 import { useSpring, animated } from 'react-spring';
 
-import { MASK_ID, PROPERTIES } from './darkModeToggler.constants';
-import type { Props } from './darkModeToggler.types';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/contexts/theme-context';
+
+import { MASK_ID, PROPERTIES } from './dark-mode-switch.constants';
+import type { Props } from './dark-mode-switch.types';
 
 export default function DarkModeSwitch({
-  onChange,
   size = 24,
   moonColor = 'white',
   sunColor = 'black',
