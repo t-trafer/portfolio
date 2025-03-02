@@ -5,6 +5,9 @@ const START_DATE = new Date('2022-07-01');
 export const PERSONAL_INFO = {
   NAME: 'Nilesh Jha',
   JOB_TITLE: 'Software Engineer',
+  CONTACT_INFO: {
+    EMAIL: 'nileshjha2k@gmail.com',
+  },
   LINKS: {
     WEBSITE: 'https://nileshjha.live',
     LINKEDIN: 'https://linkedin.com/in/nilesh2k',
@@ -21,14 +24,8 @@ export const PERSONAL_INFO = {
     'Next.js',
   ],
   PROFILE_DATA: {
-    projects: [
-      {
-        prefix: '100',
-        postfix: '+',
-        name: 'Projects',
-      },
-    ],
-    awards: [{}],
+    projects: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+    awards: [{}, {}, {}, {}, {}, {}, {}],
     years: Math.floor(calculateYears(START_DATE)),
   },
 };
