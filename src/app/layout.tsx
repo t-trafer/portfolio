@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { Toaster } from 'sonner';
 
 import Footer from '@/components/sections/footer';
 import Header from '@/components/sections/header';
@@ -63,6 +64,7 @@ export default function RootLayout({
             <Footer />
           </main>
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
