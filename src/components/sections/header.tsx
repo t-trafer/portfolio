@@ -8,6 +8,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/16/solid';
 import DarkModeToggler from '@/components/common/dark-mode-switch';
 import { Logo } from '@/components/common/logo';
 import MenuOverlay from '@/components/features/menu-overlay';
+import { Terminal } from '@/components/features/terminal/terminal';
 
 const NAV_LINKS = [
   { path: '#', title: 'Home' },
@@ -55,6 +56,7 @@ export default function Header() {
       <div className={`flex h-[6rem] items-center justify-between`}>
         <Logo />
         <div className="flex items-center gap-4">
+          <Terminal />
           <DarkModeToggler />
           {mobileMenuButton}
           {desktopNavbar}
