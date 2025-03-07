@@ -42,7 +42,10 @@ module.exports = {
     'import/no-duplicates': 'error',
     'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
 
-    'import/no-extraneous-dependencies': 'error',
+    'import/no-extraneous-dependencies': [
+      'error',
+      { packageDir: ['.', '.yalc'] },
+    ],
     'import/no-unresolved': 'error',
   },
   settings: {
