@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { KeyboardManagerProvider } from 'keyboard-manager-pro';
 import { Toaster } from 'sonner';
 
 import Footer from '@/components/sections/footer';
@@ -58,11 +59,13 @@ export default function RootLayout({
       <GoogleAnalytics gaId={process.env.GA_ID!} />
       <body className={inter.className}>
         <ThemeProvider>
-          <main className="flex min-h-screen flex-col items-center justify-between">
-            <Header />
-            {children}
-            <Footer />
-          </main>
+          <KeyboardManagerProvider>
+            <main className="flex min-h-screen flex-col items-center justify-between">
+              <Header />
+              {children}
+              <Footer />
+            </main>
+          </KeyboardManagerProvider>
         </ThemeProvider>
         <Toaster />
       </body>

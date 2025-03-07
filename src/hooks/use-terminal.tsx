@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react';
 
+import { useKeyboard } from 'keyboard-manager-pro';
+
 export default function useTerminal() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
+  const { registerBinding, unregisterBinding } = useKeyboard();
+
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        setIsTerminalOpen(true);
-      }
+    registerBinding({
+      id: 'terminal-toggle',
+      combos: ['meta+k'],
+      handler: () => setIsTerminalOpen((prev) => !prev),
+    });
 
-      if (e.key === 'Escape') {
-        setIsTerminalOpen(false);
-      }
+    registerBinding({
+      id: 'terminal-close',
+      combos: ['escape'],
+      handler: () => setIsTerminalOpen(false),
+    });
+
+    return () => {
+      unregisterBinding('terminal-toggle');
+      unregisterBinding('terminal-close');
     };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [registerBinding, unregisterBinding]);
 
   return { isTerminalOpen, setIsTerminalOpen };
 }
