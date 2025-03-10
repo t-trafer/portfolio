@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useKeyboard } from 'keyboard-manager-pro';
+import { useKeyboard, MODIFIER_KEYS, SPECIAL_KEYS } from 'keyboard-manager-pro';
 
 export default function useTerminal() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -10,13 +10,13 @@ export default function useTerminal() {
   useEffect(() => {
     registerBinding({
       id: 'terminal-toggle',
-      combos: ['meta+k'],
+      combos: [`${MODIFIER_KEYS.META}+k`],
       handler: () => setIsTerminalOpen((prev) => !prev),
     });
 
     registerBinding({
       id: 'terminal-close',
-      combos: ['escape'],
+      combos: [SPECIAL_KEYS.ESCAPE],
       handler: () => setIsTerminalOpen(false),
     });
 
